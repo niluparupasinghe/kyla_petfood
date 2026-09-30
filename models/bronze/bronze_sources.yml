@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: staging
+    database: kyla_dbt_db
+    schema: staging
+    description: "This source contains the raw data ingested from various external systems."
+    tables:
+      - name: cats
+        columns:
+          - name: name
+          - name: owner_id
+          - name: animal_deceased
+      - name: cancellations
+        columns:
+          - name: id
+          - name: cancelled_by_admin
+          - name: reactivated_date
+          - name: cancelled_date
+          - name: user_id
+          - name: reason_id
+      - name: cancellation_reasons
+        columns:
+          - name: id
+          - name: status
+          - name: reason
+      - name: pauses
+        columns:
+          - name: id
+          - name: pause_by_admin
+          - name: unpause_date
+          - name: pause_date
+      - name: pause_reasons
+        columns:
+          - name: id
+          - name: reason
+          - name: status
+      - name: customers
+        columns:
+          - name: customer_id
+          - name: date_acquired
+          - name: shipping_state
